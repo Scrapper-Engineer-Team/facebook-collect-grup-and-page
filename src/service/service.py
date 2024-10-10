@@ -1,20 +1,34 @@
 from fastapi import FastAPI, Query
+from loguru import logger
 from src.controller.get_name import GrupName
 from src.controller.page_name import PageName
 
 app = FastAPI()
 
 @app.get("/groups_list")
-async def groups_list(grup_name: str = Query(..., description="Name of the group to search for")):
+async def groups_list(grup_name: str = Query(...), 
+                      cursor: str = Query(None)):
     grup = GrupName()
-    all_results = []
-    
-    async for results in grup.process(grup_name=grup_name):  # Memanggil process dengan grup_name
-        all_results.extend(results)  # Menggabungkan semua hasil dari pagination
-
-    return {"results": all_results}
+    try:
+        results = await grup.process(grup_name=grup_name, cursor=cursor)
+        if results:
+            return {"results": results}
+        else:
+            return {"message": "No data found"}
+    except Exception as e:
+        logger.error(f"An error occurred: {e}")
+        return {"message": "Error occurred", "error": str(e)}
 
 @app.get("/page_list")
-async def page_list(page_name: str = Query(..., description="Name of the page to search for")):
-    results = PageName().get_data(page_name=page_name)  # Memanggil get_data, bukan process
-    return results
+async def page_list(page_name: str = Query(...), 
+                    cursor: str = Query(None)):
+    page = PageName()
+    try:
+        results = await page.process(page_name=page_name, cursor=cursor)
+        if results:
+            return {"results": results}
+        else:
+            return {"message": "No data found"}
+    except Exception as e:
+        logger.error(f"An error occurred: {e}")
+        return {"message": "Error occurred", "error": str(e)}
