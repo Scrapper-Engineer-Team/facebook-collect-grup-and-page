@@ -75,23 +75,18 @@ class PageName:
         }
 
         response = requests.post('https://web.facebook.com/api/graphql/', cookies=self.cookies, headers=self.headers, data=data)
-        return response.json()
+        try:
+            return response.json()
+        except ValueError as e:
+            logger.error(f"Failed to parse JSON response: {e}")
+            return None
+        
+    async def process(self, page_name=None, cursor=None):
+        logger.info(f"Processing batch with cursor {cursor}")
+        data = self.get_data(cursor, page_name=page_name)
+        if not data or 'data' not in data or 'serpResponse' not in data['data']:
+            logger.warning("No more data to fetch or error in response.")
+            return None
 
-    def process(self):
-        cursor = None
-        while True:
-            data = self.get_data(cursor)
-            if not data or 'data' not in data or 'serpResponse' not in data['data']:
-                print("No more data to fetch or error in response.")
-                break
-
-            results = data
-            if results['data']['serpResponse']['results']['edges']:
-                print(results)
-                logger.success(results)
-                cursor = results['data']['serpResponse']['results']['page_info']['end_cursor']
-            else:
-                break
-            
-            # Add a delay to avoid hitting rate limits
-            # time.sleep(1)
+        results = data
+        return results

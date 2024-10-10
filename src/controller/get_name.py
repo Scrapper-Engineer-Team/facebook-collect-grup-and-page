@@ -74,22 +74,18 @@ class GrupName:
         }
 
         response = requests.post('https://web.facebook.com/api/graphql/', cookies=self.cookies, headers=self.headers, data=data)
-        return response.json()
+        try:
+            return response.json()
+        except ValueError as e:
+            logger.error(f"Failed to parse JSON response: {e}")
+            return None
 
-    async def process(self, grup_name=None):
-        cursor = None
-        idx = 0
-        while True:
-            idx += 1
-            print(f"Processing batch {idx} with cursor {cursor}")
-            data = self.get_data(cursor, grup_name=grup_name)  # Menggunakan grup_name di sini
-            if not data or 'data' not in data or 'serpResponse' not in data['data']:
-                print("No more data to fetch or error in response.")
-                break
+    async def process(self, grup_name=None, cursor=None):
+        logger.info(f"Processing batch with cursor {cursor}")
+        data = self.get_data(cursor, grup_name=grup_name)
+        if not data or 'data' not in data or 'serpResponse' not in data['data']:
+            logger.warning("No more data to fetch or error in response.")
+            return None
 
-            results = data['data']['serpResponse']['results']['edges']
-            yield results  # Menggunakan yield untuk mengembalikan setiap batch data
-
-            cursor = data['data']['serpResponse']['results']['page_info']['end_cursor']
-            if not cursor:
-                break
+        results = data
+        return results
