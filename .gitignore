@@ -1,3 +1,4 @@
 env/
 src/*.json
 src/*/__pycache__
+deployment/*

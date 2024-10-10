@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: smart-crawler
+    kind: facebook-page-grup
+  name: facebook-page-grup-api
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: smart-crawler
+      kind: facebook-page-grup
+  template:
+    metadata:
+      labels:
+        app: smart-crawler
+        kind: facebook-page-grup
+    spec:
+      containers:
+        - name: facebook-page-grup-api
+          image: 192.168.202.50/clipper/smart-crawler/facebook_page_grup_api
+          imagePullPolicy: Always
+          livenessProbe:
+            initialDelaySeconds: 30
+            periodSeconds: 60
+            tcpSocket:
+              port: 3001
+            timeoutSeconds: 5
+          ports:
+            - containerPort: 3001
+              name: api

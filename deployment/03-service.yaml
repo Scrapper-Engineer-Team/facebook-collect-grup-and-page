@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: facebook-page-grup-api
+spec:
+  selector:
+    app: smart-crawler
+    kind: facebook-page-grup-api
+  ports:
+    - protocol: TCP
+      port: 3001
+      targetPort: 3001
+      nodePort: 31920
+      name: api
+  type: NodePort
