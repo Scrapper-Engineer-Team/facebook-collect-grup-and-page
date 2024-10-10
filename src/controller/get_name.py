@@ -14,20 +14,20 @@ class GrupName:
             'fbl_st': '101536515%3BT%3A28806236',
             'vpd': 'v1%3B868x648x2.000000037252903',
             'dpr': '0.71875',
-            'xs': '41%3AvLFumcRD-SS7uQ%3A2%3A1728373764%3A-1%3A-1%3A%3AAcW4-V0qYRs0MPEiztzLrnYP8X187i1uGRM7xugPtw',
-            'fr': '1LWdfKpaq0uVKFKdR.AWWwO2ZUo326LhOx4JzX7XlE1QY.BnBOnP..AAA.0.0.BnBPCg.AWVCIwkTlhY',
-            'usida': 'eyJ2ZXIiOjEsImlkIjoiQXNsMTJ2OTE1amhmc3oiLCJ0aW1lIjoxNzI4Mzc3MDE4fQ%3D%3D',
+            'xs': '41%3AvLFumcRD-SS7uQ%3A2%3A1728373764%3A-1%3A-1%3A%3AAcWp8raZD3rZIsEE3qvcn4BKWAJYU5qllXmYvLsJnQ',
+            'fr': '1i6uKnaQ0hm55cKlf.AWVkYssIdMQyKjOBGDYrfhuYnQg.BnBPgG..AAA.0.0.BnCKcS.AWUBKmPchHQ',
+            'presence': 'C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1728620310681%2C%22v%22%3A1%7D',
             'wd': '1072x955',
-            'presence': 'C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1728377896982%2C%22v%22%3A1%7D',
         }
 
         self.headers = {
             'accept': '*/*',
             'accept-language': 'id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7',
             'content-type': 'application/x-www-form-urlencoded',
-            'origin': 'https://web.facebook.com',
+            # 'cookie': 'sb=Sd0EZyd1ZLFTH1DgFE17E4Nu; datr=Sd0EZ6_llVPt6h1Plmpmd3gI; locale=id_ID; ps_l=1; ps_n=1; c_user=61566949410348; fbl_st=101536515%3BT%3A28806236; vpd=v1%3B868x648x2.000000037252903; dpr=0.71875; xs=41%3AvLFumcRD-SS7uQ%3A2%3A1728373764%3A-1%3A-1%3A%3AAcWp8raZD3rZIsEE3qvcn4BKWAJYU5qllXmYvLsJnQ; fr=1i6uKnaQ0hm55cKlf.AWVkYssIdMQyKjOBGDYrfhuYnQg.BnBPgG..AAA.0.0.BnCKcS.AWUBKmPchHQ; presence=C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1728620310681%2C%22v%22%3A1%7D; wd=1072x955',
+            'origin': 'https://www.facebook.com',
             'priority': 'u=1, i',
-            'referer': 'https://web.facebook.com/search/groups?q=jual%20beli%20hp%20second%20bandung%20murah',
+            'referer': 'https://www.facebook.com/search/groups/?q=persib&locale=id_ID',
             'sec-ch-prefers-color-scheme': 'dark',
             'sec-ch-ua': '"Chromium";v="128", "Not;A=Brand";v="24", "Google Chrome";v="128"',
             'sec-ch-ua-full-version-list': '"Chromium";v="128.0.6613.137", "Not;A=Brand";v="24.0.0.0", "Google Chrome";v="128.0.6613.137"',
@@ -41,7 +41,7 @@ class GrupName:
             'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
             'x-asbd-id': '129477',
             'x-fb-friendly-name': 'SearchCometResultsPaginatedResultsQuery',
-            'x-fb-lsd': 'JpFwBoI34LT29ntJvA5nJu',
+            'x-fb-lsd': 'cRvHIYBhU4mvq30V-4qd1G',
         }
 
     def get_data(self, cursor=None, grup_name=None):
