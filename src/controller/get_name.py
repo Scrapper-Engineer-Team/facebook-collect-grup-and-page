@@ -87,5 +87,6 @@ class GrupName:
             logger.warning("No more data to fetch or error in response.")
             return None
 
+        #menampilkan hasil pertama dengan seluruh field (Raw Data)
         results = data
         return results

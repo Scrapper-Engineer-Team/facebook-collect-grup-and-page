@@ -26,6 +26,7 @@ async def page_list(page_name: str = Query(...),
     try:
         results = await page.process(page_name=page_name, cursor=cursor)
         if results:
+            #menampilkan hasil pertama dengan seluruh field (Raw Data)
             return {"results": results}
         else:
             return {"message": "No data found"}
