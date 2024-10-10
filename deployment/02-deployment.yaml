@@ -6,7 +6,7 @@ metadata:
     kind: facebook-page-grup
   name: facebook-page-grup-api
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: smart-crawler

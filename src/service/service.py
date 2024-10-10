@@ -6,8 +6,13 @@ app = FastAPI()
 
 @app.get("/groups_list")
 async def groups_list(grup_name: str = Query(..., description="Name of the group to search for")):
-    results = GrupName().get_data(grup_name=grup_name)  # Memanggil get_data, bukan process
-    return results
+    grup = GrupName()
+    all_results = []
+    
+    async for results in grup.process(grup_name=grup_name):  # Memanggil process dengan grup_name
+        all_results.extend(results)  # Menggabungkan semua hasil dari pagination
+
+    return {"results": all_results}
 
 @app.get("/page_list")
 async def page_list(page_name: str = Query(..., description="Name of the page to search for")):
