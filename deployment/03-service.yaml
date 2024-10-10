@@ -5,11 +5,11 @@ metadata:
 spec:
   selector:
     app: smart-crawler
-    kind: facebook-page-grup-api
+    kind: facebook-page-grup
   ports:
     - protocol: TCP
-      port: 3001
-      targetPort: 3001
+      port: 1001
+      targetPort: 1001
       nodePort: 31920
       name: api
   type: NodePort
