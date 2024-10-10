@@ -19,14 +19,25 @@ spec:
     spec:
       containers:
         - name: facebook-page-grup-api
-          image: 192.168.202.50/clipper/smart-crawler/facebook_page_grup_api
+          image: 192.168.202.50/clipper/smart-crawler/facebook-page-grup-api
           imagePullPolicy: Always
           livenessProbe:
             initialDelaySeconds: 30
             periodSeconds: 60
             tcpSocket:
-              port: 3001
+              port: 1001
             timeoutSeconds: 5
           ports:
-            - containerPort: 3001
+            - containerPort: 1001
               name: api
+          volumeMounts:
+            - mountPath: /app/config.ini
+              name: config
+              subPath: config.ini
+            - mountPath: /app/logging.yaml
+              name: config
+              subPath: logging.yaml
+      volumes:
+        - configMap:
+            name: config-facebook-page-grup
+          name: config
