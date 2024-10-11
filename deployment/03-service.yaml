@@ -5,12 +5,11 @@ metadata:
 spec:
   selector:
     app: smart-crawler
+    kind: facebook-page-grup
   ports:
     - protocol: TCP
-      port: 8111
-      targetPort: 8111
-      nodePort: 31927
+      port: 1001
+      targetPort: 1001
+      nodePort: 31920
       name: api
-  type: LoadBalancer
-  externalIPs:
-      - 10.11.121.100
+  type: NodePort
