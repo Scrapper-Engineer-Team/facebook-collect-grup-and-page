@@ -81,7 +81,6 @@ class GrupName:
         except ValueError as e:
             logger.error(f"Failed to parse JSON response: {e}")
             return None
-<<<<<<< HEAD
 
     async def process(self, grup_name=None, cursor=None):
         logger.info(f"Processing batch with cursor {cursor}")
@@ -89,17 +88,7 @@ class GrupName:
         if not data or 'data' not in data or 'serpResponse' not in data['data']:
             logger.warning("No more data to fetch or error in response.")
             return None
-
-=======
-
-    async def process(self, grup_name=None, cursor=None):
-        logger.info(f"Processing batch with cursor {cursor}")
-        data = self.get_data(cursor, grup_name=grup_name)
-        if not data or 'data' not in data or 'serpResponse' not in data['data']:
-            logger.warning("No more data to fetch or error in response.")
-            return None
-
->>>>>>> c0f0a6c5f1a622487a948c9e4f3d4eeaa005de60
-        #menampilkan hasil pertama dengan seluruh field (Raw Data)
+	
+	#menampilkan hasil pertama dengan seluruh field (Raw Data)
         results = data
         return results
