@@ -2,6 +2,7 @@ from fastapi import FastAPI, Query
 from loguru import logger
 from src.controller.get_name import GrupName
 from src.controller.page_name import PageName
+from src.controller.config_manager import ConfigManager
 
 app = FastAPI()
 
@@ -32,4 +33,20 @@ async def page_list(page_name: str = Query(...),
             return {"message": "No data found"}
     except Exception as e:
         logger.error(f"An error occurred: {e}")
+        return {"message": "Error occurred", "error": str(e)}
+
+@app.get("/reset_cookies")
+async def reset_cookies(new_cookies: str = Query(None)):
+    config_manager = ConfigManager()
+    try:
+        if new_cookies:
+            # Mengubah string cookies menjadi dictionary
+            cookies_dict = dict(item.split("=") for item in new_cookies.split("; "))
+            # Memperbarui cookies di file config.ini
+            config_manager.update_cookies(cookies_dict)
+            return {"message": "Cookies updated successfully"}
+        else:
+            return {"message": "Using default cookies"}
+    except Exception as e:
+        print(f"An error occurred: {e}")
         return {"message": "Error occurred", "error": str(e)}
