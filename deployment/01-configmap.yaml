@@ -1,7 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: config-facebook-grup-page-api
+  name: config-bps-daerah
+  namespace: sc-dev-rest-api
 data:
   config.ini: |
     [cookies]
