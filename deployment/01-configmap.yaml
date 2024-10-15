@@ -1,8 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: config-bps-daerah
-  namespace: nextgen
+  name: config-facebook-grup-page-api
 data:
   config.ini: |
     [cookies]
@@ -18,4 +17,3 @@ data:
     presence = C%%7B%%22t3%%22%%3A%%5B%%5D%%2C%%22utc3%%22%%3A1728925036451%%2C%%22v%%22%%3A1%%7D
     wd = 1072x955
     locale = id_ID
-    
