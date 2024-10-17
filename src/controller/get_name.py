@@ -24,14 +24,17 @@ class GrupName:
         config_manager = ConfigManager()
         self.cookies = config_manager.get_cookies()
 
-        self.headers = {
+
+    def get_data(self, cursor=None, grup_name=None):
+
+        headers = {
             'accept': '*/*',
             'accept-language': 'id-ID,id;q=0.9',
             'content-type': 'application/x-www-form-urlencoded',
-            # 'cookie': 'sb=VE0NZ9IdfXRvmsQi-sHI1mP1; ps_l=1; ps_n=1; dpr=0.71875; c_user=61567323625343; datr=VE0NZ9GVivINzaiWdUdyuJbK; xs=39%3A2NFO8d02hllsCw%3A2%3A1728925031%3A-1%3A-1; fr=0r40L8IAJTaookKLp.AWWhyiIW31DQcbEGaIvXe2juVFQ.BnDU1U..AAA.0.0.BnDU1p.AWXyeREdwRo; presence=C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1728925036451%2C%22v%22%3A1%7D; wd=1072x955',
+            # 'cookie': 'sb=M48QZ8b8XXRPyMD9gYtiJKvr; dpr=0.71875; datr=M48QZ3KbJOKJ7EwHKetLOgMI; c_user=61566949410348; xs=13%3ACWnYUdbBbBkczg%3A2%3A1729138496%3A-1%3A-1; fr=0L2Iow2DSyHXBEUFa.AWXnG-PiuHy5jBJIlYQQ2srBooQ.BnEI84..AAA.0.0.BnEI9C.AWVB-GziGuk; ps_l=1; ps_n=1; presence=C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1729138499696%2C%22v%22%3A1%7D; wd=1072x944',
             'origin': 'https://www.facebook.com',
             'priority': 'u=1, i',
-            'referer': 'https://www.facebook.com/search/groups/?q=jual%20beli',
+            'referer': 'https://www.facebook.com/search/top?q={grup_name}'.format(grup_name=grup_name),
             'sec-ch-prefers-color-scheme': 'dark',
             'sec-ch-ua': '"Chromium";v="128", "Not;A=Brand";v="24", "Google Chrome";v="128"',
             'sec-ch-ua-full-version-list': '"Chromium";v="128.0.6613.137", "Not;A=Brand";v="24.0.0.0", "Google Chrome";v="128.0.6613.137"',
@@ -44,41 +47,39 @@ class GrupName:
             'sec-fetch-site': 'same-origin',
             'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
             'x-asbd-id': '129477',
-            'x-fb-friendly-name': 'SearchCometResultsPaginatedResultsQuery',
-            'x-fb-lsd': 'Q7ykn7yQ5dKl1_yrAD2aiQ',
+            'x-fb-friendly-name': 'SearchCometResultsInitialResultsQuery',
+            'x-fb-lsd': 'Ywht0ZNdz7JOU0x_9gryxM',
         }
 
-    def get_data(self, cursor=None, grup_name=None):
-        
         data = {
-            'av': '61567323625343',
+            'av': '61566949410348',
             '__aaid': '0',
-            '__user': '61567323625343',
+            '__user': '61566949410348',
             '__a': '1',
-            '__req': '1s',
-            '__hs': '20010.HYP:comet_pkg.2.1..2.1',
+            '__req': '2b',
+            '__hs': '20013.HYP:comet_pkg.2.1..2.1',
             'dpr': '1',
             '__ccg': 'EXCELLENT',
-            '__rev': '1017314811',
-            '__s': '0cdn3r:0ccfn8:2h7uku',
-            '__hsi': '7425676474822099839',
-            '__dyn': '7AzHK4HwkEng5K8G6EjBAg5S3G2O5U4e2C1jyUW3q2ibwNw9G2Saw8i2S1DwUx60GE3Qwb-q7oc81xoswMwto886C11wBz83WwgEcEhwGxu782lwv89kbxS1Fwc61awkovwRwlE-U2exi4UaEW2G1jwUBwJK14xm1Wxfxmu3W3y261eBx_wHwoE2mwLKq2-azqwaW223908O3216xi4UK2K364UrwFg2fwxyo566k1FwgU4q3G1eKufxa3mUqwjVqwLwHwea',
-            '__csr': 'gaIInklsp5igVsBl4Z-xZht8TcDRtEJJfaL_ZTbnWtd5EH47HhQPlFQLFnF4Qi4puJ94QJ6JajGkCU-imrCAKmaXrAAx7CCBQFqzotAHJ2CA6oXCxvUgzUeuUjyXXzqxyEKuqeyEkx63q68e8jy8mwloc89pEK2y2u368grwoU3LwrQ0gK0xUaK1twWwkU2twnU19Uow13106_w05AGxm3B01xO0UU0jcw1CO01efw0uK85-1qwro',
+            '__rev': '1017421435',
+            '__s': 'emtegf:vt6k4z:slpe1t',
+            '__hsi': '7426593300476128583',
+            '__dyn': '7AzHK4HwkEng5K8G6EjBAg5S3G2O5U4e2C1jyUW3q2ibwNw9G2Saw8i2S1DwUx60GE5O0BU2_CxS320om78c87m221Fwgo9oO0-E4a3a4oaEnxO0Bo7O2l2Utwqo31wiE567Udo5qfK0zEkxe2GewGwkUe9obrwh8lwuEjUlDw-wSU8o4Wm7-2K1yw9q2-VEbUGdG0HE88cA0z8c84q58jyUaUcojxK2B08-269wkopg6C13whEeE4WVU-4EdrxG1fBG2-2K0UE',
+            '__csr': 'gacv7NYIn5ggOjONdsy4Nkykh9lnZWn8quBlkXLETkntdbQQCJ9A9rvRrF4FGp4ZOaEWWjGZuFQuKGl1iqKQbQWDAWGq8xedJ2HDK9BzQQaCCh9qAUHUix5249gC6EWfxihAwSZ12Cq2Fx64ElwMxCidwQUqAxy1qK1Lwwxy2K1ewxK3q1HwgEa8aUe86i0he7o5e3S0WK3q1mwho3iw58w1Je0na00lA10fR00HYw72w1Ey052809qoO00xf81T8',
             '__comet_req': '15',
-            'fb_dtsg': 'NAcOGp2h60DyFgmmbeJKTNwI_mTzLUNI6auXUQFN7KBiI2qMfWAbJLg:39:1728925031',
-            'jazoest': '25395',
-            'lsd': 'Q7ykn7yQ5dKl1_yrAD2aiQ',
-            '__spin_r': '1017314811',
+            'fb_dtsg': 'NAcOqjZ4MzZ9ZkcO2VI4EDtl3zUAhTdP_eDEPzSYTbhlJkLqAp_f5wg:13:1729138496',
+            'jazoest': '25582',
+            'lsd': 'Ywht0ZNdz7JOU0x_9gryxM',
+            '__spin_r': '1017421435',
             '__spin_b': 'trunk',
-            '__spin_t': '1728925033',
+            '__spin_t': '1729138498',
             'fb_api_caller_class': 'RelayModern',
-            'fb_api_req_friendly_name': 'SearchCometResultsPaginatedResultsQuery',
-            'variables': '{"allow_streaming":false,"args":{"callsite":"COMET_GLOBAL_SEARCH","config":{"exact_match":false,"high_confidence_config":null,"intercept_config":null,"sts_disambiguation":null,"watch_config":null},"context":{"bsid":"6dd38867-99e4-4643-ba88-98f3523db8f1","tsid":"0.9445569633050603"},"experience":{"client_defined_experiences":["ADS_PARALLEL_FETCH"],"encoded_server_defined_params":null,"fbid":null,"type":"GROUPS_TAB"},"filters":[],"text":"'+(grup_name or '')+'"},"count":5,"cursor":"'+(cursor or '')+'","feedLocation":"SEARCH","feedbackSource":23,"fetch_filters":true,"focusCommentID":null,"locale":null,"privacySelectorRenderLocation":"COMET_STREAM","renderLocation":"search_results_page","scale":1,"stream_initial_count":0,"useDefaultActor":false,"__relay_internal__pv__GHLShouldChangeAdIdFieldNamerelayprovider":true,"__relay_internal__pv__GHLShouldChangeSponsoredDataFieldNamerelayprovider":false,"__relay_internal__pv__CometImmersivePhotoCanUserDisable3DMotionrelayprovider":false,"__relay_internal__pv__IsWorkUserrelayprovider":false,"__relay_internal__pv__IsMergQAPollsrelayprovider":false,"__relay_internal__pv__FBReelsMediaFooter_comet_enable_reels_ads_gkrelayprovider":false,"__relay_internal__pv__CometUFIReactionsEnableShortNamerelayprovider":false,"__relay_internal__pv__CometUFIShareActionMigrationrelayprovider":true,"__relay_internal__pv__IncludeCommentWithAttachmentrelayprovider":true,"__relay_internal__pv__StoriesArmadilloReplyEnabledrelayprovider":false,"__relay_internal__pv__EventCometCardImage_prefetchEventImagerelayprovider":false}',
+            'fb_api_req_friendly_name': 'SearchCometResultsInitialResultsQuery',
+            'variables': '{"count":5,"allow_streaming":false,"args":{"callsite":"COMET_GLOBAL_SEARCH","config":{"exact_match":false,"high_confidence_config":null,"intercept_config":null,"sts_disambiguation":null,"watch_config":null},"context":{"bsid":"83f7ef7f-f414-41ad-9e00-aea92200bcf3","tsid":"0.6978615152259975"},"experience":{"client_defined_experiences":["ADS_PARALLEL_FETCH"],"encoded_server_defined_params":null,"fbid":null,"type":"GROUPS_TAB"},"filters":[],"text":"'+(grup_name or '')+'"},"cursor":"'+(cursor or '')+'","feedbackSource":23,"fetch_filters":true,"renderLocation":"search_results_page","scale":1,"stream_initial_count":0,"useDefaultActor":false,"__relay_internal__pv__GHLShouldChangeAdIdFieldNamerelayprovider":false,"__relay_internal__pv__GHLShouldChangeSponsoredDataFieldNamerelayprovider":true,"__relay_internal__pv__CometImmersivePhotoCanUserDisable3DMotionrelayprovider":false,"__relay_internal__pv__IsWorkUserrelayprovider":false,"__relay_internal__pv__IsMergQAPollsrelayprovider":false,"__relay_internal__pv__FBReelsMediaFooter_comet_enable_reels_ads_gkrelayprovider":false,"__relay_internal__pv__CometUFIReactionsEnableShortNamerelayprovider":false,"__relay_internal__pv__CometUFIShareActionMigrationrelayprovider":true,"__relay_internal__pv__IncludeCommentWithAttachmentrelayprovider":true,"__relay_internal__pv__StoriesArmadilloReplyEnabledrelayprovider":false,"__relay_internal__pv__EventCometCardImage_prefetchEventImagerelayprovider":true}',
             'server_timestamps': 'true',
-            'doc_id': '8668325726557956',
+            'doc_id': '8474743002621393',
         }
 
-        response = requests.post('https://web.facebook.com/api/graphql/', cookies=self.cookies, headers=self.headers, data=data)
+        response = requests.post('https://web.facebook.com/api/graphql/', cookies=self.cookies, headers=headers, data=data)
         try:
             return response.json()
         except ValueError as e:

@@ -31,10 +31,10 @@ spec:
             - containerPort: 1001
               name: api
           volumeMounts:
-            - mountPath: /app/config.ini
+            - mountPath: /config.ini
               name: config
               subPath: config.ini
-            - mountPath: /app/logging.yaml
+            - mountPath: /logging.yaml
               name: config
               subPath: logging.yaml
       volumes:

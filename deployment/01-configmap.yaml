@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: config-facebook-page-grup-api
+  name: config-facebook-page-grup
   namespace: sc-dev-rest-api
 data:
   config.ini: |
